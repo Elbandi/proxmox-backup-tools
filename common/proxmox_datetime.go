@@ -31,3 +31,7 @@ func (e *ProxmoxDateTimeValue) Set(value string) error {
 func (e *ProxmoxDateTimeValue) String() string {
 	return strconv.FormatUint(e.selected, 10)
 }
+
+func (e *ProxmoxDateTimeValue) Value() uint64 {
+	return e.selected
+}
