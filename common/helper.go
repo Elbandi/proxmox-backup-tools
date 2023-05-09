@@ -32,6 +32,9 @@ func NewOffsetReadSeeker(r io.ReaderAt, off int64) *OffsetReader {
 func (o *OffsetReader) Read(p []byte) (n int, err error) {
 	n, err = o.r.ReadAt(p, o.off)
 	o.off += int64(n)
+	if n == 0 {
+		return n, io.EOF
+	}
 	return
 }
 
