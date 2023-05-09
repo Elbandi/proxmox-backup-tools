@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"github.com/btcsuite/btcd/chaincfg/chainhash"
 	"github.com/elbandi/proxmox-backup-tools/common"
-	"github.com/urfave/cli"
+	"github.com/urfave/cli/v2"
 	"io"
 	"os"
 	"sort"
@@ -93,7 +93,7 @@ var DumpHashCommand = cli.Command{
 	Description: `lofasz
 	`,
 	Flags: []cli.Flag{
-		cli.BoolFlag{
+		&cli.BoolFlag{
 			Name:     "with-dir",
 			Required: false,
 			Usage:    "Print hash with dir",
@@ -110,7 +110,7 @@ func cmdDumpHash(ctx *cli.Context) error {
 		outputFormat = "%[2]s\n"
 	}
 	args := ctx.Args()
-	for i, k := range args {
+	for i, k := range args.Slice() {
 		hashtable, err := readHashFromFile(k)
 		common.CheckErr(err, "hash read on %s", k)
 		sort.Sort(common.HashSorter(hashtable))

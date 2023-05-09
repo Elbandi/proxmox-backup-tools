@@ -3,7 +3,7 @@ package checksum
 import (
 	"fmt"
 	"github.com/elbandi/proxmox-backup-tools/common"
-	"github.com/urfave/cli"
+	"github.com/urfave/cli/v2"
 	"os"
 )
 
@@ -13,14 +13,14 @@ var ChecksumCommand = cli.Command{
 	Description: `
 	`,
 	Flags: []cli.Flag{
-		common.SrcRepo,
-		common.SrcNamespace,
-		common.SrcFingerprint,
-		common.SrcPassword,
-		common.SrcKeyFile,
-		common.SrcKeyPassword,
-		common.BackupId,
-		common.BackupTime,
+		&common.SrcRepo,
+		&common.SrcNamespace,
+		&common.SrcFingerprint,
+		&common.SrcPassword,
+		&common.SrcKeyFile,
+		&common.SrcKeyPassword,
+		&common.BackupId,
+		&common.BackupTime,
 	},
 	Action: cmdChecksum,
 }

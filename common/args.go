@@ -1,6 +1,8 @@
 package common
 
-import "github.com/urfave/cli"
+import (
+	"github.com/urfave/cli/v2"
+)
 
 var (
 	SrcRepo = cli.StringFlag{
@@ -60,15 +62,14 @@ var (
 		Name:  "dst-keypassword",
 		Usage: "Destination key password",
 	}
-
 	BackupId = cli.StringFlag{
 		Name:     "backup-id",
 		Usage:    "backup id",
 		Required: true,
 	}
-	BackupTime = cli.Uint64Flag{
+	BackupTime = cli.GenericFlag{
 		Name:     "backup-time",
-		Value:    0,
+		Value:    &ProxmoxDateTimeValue{Default: 0},
 		Usage:    "backup time",
 		Required: true,
 	}

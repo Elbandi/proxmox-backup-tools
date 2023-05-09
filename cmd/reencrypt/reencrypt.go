@@ -3,7 +3,7 @@ package reencrypt
 import (
 	"fmt"
 	"github.com/elbandi/proxmox-backup-tools/common"
-	"github.com/urfave/cli"
+	"github.com/urfave/cli/v2"
 	"os"
 )
 
@@ -13,20 +13,20 @@ var ReencryptCommand = cli.Command{
 	Description: `
 	`,
 	Flags: []cli.Flag{
-		common.SrcRepo,
-		common.SrcNamespace,
-		common.SrcFingerprint,
-		common.SrcPassword,
-		common.SrcKeyFile,
-		common.SrcKeyPassword,
-		common.DstRepo,
-		common.DstNamespace,
-		common.DstFingerprint,
-		common.DstPassword,
-		common.DstKeyFile,
-		common.DstKeyPassword,
-		common.BackupId,
-		common.BackupTime,
+		&common.SrcRepo,
+		&common.SrcNamespace,
+		&common.SrcFingerprint,
+		&common.SrcPassword,
+		&common.SrcKeyFile,
+		&common.SrcKeyPassword,
+		&common.DstRepo,
+		&common.DstNamespace,
+		&common.DstFingerprint,
+		&common.DstPassword,
+		&common.DstKeyFile,
+		&common.DstKeyPassword,
+		&common.BackupId,
+		&common.BackupTime,
 	},
 	Action: cmdReencrypt,
 }
