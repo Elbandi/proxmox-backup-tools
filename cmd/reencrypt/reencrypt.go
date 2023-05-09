@@ -25,6 +25,7 @@ var ReencryptCommand = cli.Command{
 		&common.DstPassword,
 		&common.DstKeyFile,
 		&common.DstKeyPassword,
+		&common.BackupType,
 		&common.BackupId,
 		&common.BackupTime,
 	},

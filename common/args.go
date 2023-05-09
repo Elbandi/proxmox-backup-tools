@@ -62,6 +62,14 @@ var (
 		Name:  "dst-keypassword",
 		Usage: "Destination key password",
 	}
+	BackupType = cli.GenericFlag{
+		Name: "backup-type",
+		Value: &EnumValue{
+			Enum:    []string{"host", "vm", "ct"},
+			Default: "vm",
+		},
+		Usage: "backup type",
+	}
 	BackupId = cli.StringFlag{
 		Name:     "backup-id",
 		Usage:    "backup id",
