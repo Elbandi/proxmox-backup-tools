@@ -3,8 +3,8 @@ module github.com/elbandi/proxmox-backup-tools
 go 1.18
 
 require (
+	github.com/Elbandi/go-proxmox-backup-client v0.0.0-20230507001507-b7f2bd6f7fcd
 	github.com/btcsuite/btcd/chaincfg/chainhash v1.0.2
-	github.com/Elbandi/go-proxmox-backup-client v0.0.0-00010101000000-000000000000
 	github.com/schollz/progressbar/v3 v3.13.1
 	github.com/urfave/cli/v2 v2.25.3
 	golang.org/x/text v0.9.0
