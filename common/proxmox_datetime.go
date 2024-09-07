@@ -23,7 +23,11 @@ func (e *ProxmoxDateTimeValue) Set(value string) error {
 		if err != nil {
 			return err
 		}
-		e.selected = uint64(t)
+		if t > 0 {
+			e.selected = uint64(t)
+		} else {
+			e.selected = uint64(time.Now().Unix())
+		}
 	}
 	return nil
 }
