@@ -68,7 +68,7 @@ func cmdCompareBackups(ctx *cli.Context) error {
 	}
 
 	outputFormat := ctx.Uint64("output")
-	p := message.NewPrinter(ctx.Generic("locale").(common.LanguageValue).Value())
+	p := message.NewPrinter(ctx.Generic("locale").(*common.LanguageValue).Value())
 	fmt.Printf("X;%s\n", strings.Join(files, ";"))
 	for i, f := range files {
 		fmt.Printf("%s;", f)
