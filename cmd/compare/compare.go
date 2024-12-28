@@ -74,14 +74,24 @@ func cmdCompareBackups(ctx *cli.Context) error {
 		fmt.Printf("%s;", f)
 		h1 := hashes[i]
 		for j, h2 := range hashes {
-			if j <= i {
+			if j < i {
 				p.Printf("0;")
+				continue
+			} else if j == i {
+				switch outputFormat {
+				case 2:
+					p.Printf("%d;", len(h1))
+				default:
+					p.Printf("0;")
+				}
 				continue
 			}
 			count := countCommonElements(h1, h2)
 			switch outputFormat {
 			case 1:
 				p.Printf("%d;", len(h1)+len(h2)-(count*2))
+			case 2:
+				p.Printf("%d;", count)
 			default:
 				p.Printf("%.2f;", 100-float64(count*2*100)/float64(len(h1)+len(h2)))
 			}
