@@ -2,7 +2,6 @@ package compare
 
 import (
 	"bytes"
-	"flag"
 	"fmt"
 	"github.com/btcsuite/btcd/chaincfg/chainhash"
 	"github.com/elbandi/proxmox-backup-tools/common"
@@ -57,8 +56,8 @@ func countCommonElements(arr1, arr2 []*chainhash.Hash) int {
 }
 
 func cmdCompareBackups(ctx *cli.Context) error {
-	files := make([]string, flag.NArg())
-	hashes := make([][]*chainhash.Hash, flag.NArg())
+	files := make([]string, ctx.NArg())
+	hashes := make([][]*chainhash.Hash, ctx.NArg())
 	args := ctx.Args()
 	for i, k := range args.Slice() {
 		h, err := common.ReadHashFromFile(k)
