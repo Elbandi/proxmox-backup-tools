@@ -75,7 +75,7 @@ func cmdCompareBackups(ctx *cli.Context) error {
 		h1 := hashes[i]
 		for j, h2 := range hashes {
 			if j <= i {
-				print("0;")
+				p.Printf("0;")
 				continue
 			}
 			count := countCommonElements(h1, h2)
