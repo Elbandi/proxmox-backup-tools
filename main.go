@@ -3,6 +3,7 @@ package main
 import (
 	"github.com/elbandi/proxmox-backup-tools/cmd/checksum"
 	"github.com/elbandi/proxmox-backup-tools/cmd/compare"
+	"github.com/elbandi/proxmox-backup-tools/cmd/count"
 	"github.com/elbandi/proxmox-backup-tools/cmd/dump"
 	"github.com/elbandi/proxmox-backup-tools/cmd/reencrypt"
 	"github.com/urfave/cli/v2"
@@ -24,6 +25,7 @@ func main() {
 		Commands: []*cli.Command{
 			&checksum.ChecksumCommand,
 			&compare.CompareCommand,
+			&count.CountChunksCommand,
 			&dump.DumpHashCommand,
 			&reencrypt.ReencryptCommand,
 		},
